@@ -13,60 +13,78 @@
  * Prints out the name of each item in the given array.
  * @param {Item[]} items - array of items
  */
-function logNames(items) {
+const logNames = (items) => {
   // TODO: use `forEach`
-}
+  return items.forEach((item) => {
+    console.log(item.name);
+  });
+};
 
 /**
  * @param {Item[]} items - array of items
  * @returns {string[]} an array of item names in all uppercase
  */
-function getUppercaseNames(items) {
+const getUppercaseNames = (items) => {
   // TODO: use `map`
-}
+  return items.map(item => item.name.toUpperCase());
+};
 
 /**
  * @param {Item[]} items - array of items
  * @param {number} id - id of the item to find
  * @returns {Item} - the item in `items` with the given `id`
  */
-function getItemById(items, id) {
-  // TODO: use `find`
-}
+const getItemById = (items, id) => {
+  const item = items.find(item => item.id === id); // Using the find method to iterate through the items array and finding the id passed through the function/user input
+  
+  if (!item) {
+    console.log(`Item with ID ${id} not found.`); // If the user inputs an id that is not in the items array
+    return null;
+  }
+  return item;
+};
 
 /**
  * @param {Item[]} items - array of items
  * @param {string} name - name of the item to find
  * @returns {number} the price of the item named `name`
  */
-function getItemPriceByName(items, name) {
+const getItemPriceByName = (items, name) => {
   // TODO: use a loop!
-}
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].name === name) {
+      return items[i].price;
+    };
+  };
+};
 
 /**
  * @param {Item[]} items - array of items
  * @param {string} category
  * @returns {Item[]} array of items that belong to the given `category`
  */
-function getItemsByCategory(items, category) {
+const  getItemsByCategory = (items, category) => {
   // TODO: use `filter`
-}
+  return items.filter(item => item.category === category);
+};
 
 /**
  * @param {Item[]} items - array of items
  * @returns {number} the total quantity of all items
  */
-function countItems(items) {
+const countItems = (items) => {
   // TODO: use `reduce`
-}
+  return items.reduce((total, item) => total + item.quantity, 0);
+};
 
 /**
  * @param {Item[]} items - array of items
  * @returns {number} the cost of all given items
  */
-function calculateTotalPrice(items) {
+const calculateTotalPrice = (items) => {
   // TODO: use `reduce`
-}
+  return items.reduce((total, item) => total + item.price * item.quantity, 0);
+};
 
 // --------------------- DO NOT CHANGE THE CODE BELOW ------------------------ //
 
